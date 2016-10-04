@@ -1,0 +1,2 @@
+INDEX VERSION 1.127+C:\Users\Igor\Documents\ITS\ITS_Cloud_2016-2017\Recupero\Workspace\Rec\.metadata\.plugins\org.eclipse.jdt.core
+2197948962.index

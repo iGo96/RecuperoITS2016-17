@@ -2,7 +2,7 @@ package com.its.es2;
 
 public class Main {
 
-	public static void main(String[] args) {		
+	public static void main(String[] args) throws Exception {		
 		BT t = new BT(2); // condizione di esistenza dell'albero è l'esistenza della root 
 		Node root = t.getRoot();
 		t.insertLeft(root, 3);
