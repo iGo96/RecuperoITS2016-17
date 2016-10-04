@@ -1,53 +1,61 @@
 package com.its.es2;
 
+import com.its.exceptions.NodeAlreadyExistsException;
+import com.its.exceptions.NodeDoesNotExistException;
+
 public class BT {
-	private Node node;
+	private Node root;
 	
 	public BT(int value){
-		node = new Node(value, null);
+		root = new Node(value, null);
 	}
 	
 	public Node getRoot(){
-		return node;
+		return root;
 	}
 	
 	public Node getNode(){
-		return node;
+		return root;
 	}
 	
 	public Node searchFirst(int element){
-		Node foundElement = search(node.getDx(), element);
-		if (foundElement == null)
-			foundElement = search(node.getSx(), element);
-		
-		return foundElement;
+		return searchFirstRec(root, element);
 	}
 	
-	private Node search(Node node, int element){
-		// CONTROLLARE SE IL NODO HA FIGLI. NON PUO' FARE GETDX SE NON HA FIGLI.
-		
-		if (this.node.getValue() == new Integer(element))
-			return this.node;
-		else
-			return search(node.getDx(), element);
+	private Node searchFirstRec(Node node, int element){
+		Node l, r;
+		if (node == null){
+			return null;
+		}
+		else if (node.getValue() == new Integer(element)){
+			return node;
+		}
+		l = searchFirstRec(node.getSx(), element);
+		if (l != null){
+			return l;
+		}
+		else {
+			r = searchFirstRec(node.getSx(), element);
+			return r;
+		}
 	}
 	
-	public Node insertRight(Node node, int value){
+	public Node insertRight(Node node, int value) throws NodeAlreadyExistsException{
 		if (node.getDx() == null){
 			node.setDx(value);
-			return node.getDx();
+			return node;
 		}
 		else
-			return null;
+			throw new NodeAlreadyExistsException(node.getDx());
 	}
 	
-	public Node insertLeft(Node node, int value){
+	public Node insertLeft(Node node, int value) throws NodeAlreadyExistsException{
 		if (node.getSx() == null){
 			node.setSx(value);
-			return node.getSx();
+			return node;
 		}
 		else
-			return null;
+			throw new NodeAlreadyExistsException(node.getSx());
 	}
 	
 	public void updateNode(Node n, int val){
@@ -56,7 +64,7 @@ public class BT {
 	
 	public void deleteNode(Node n) throws Exception{
 		if (n == null)
-			throw new Exception("Il nodo che stai cercando di elminare non esiste");
+			throw new NodeDoesNotExistException();
 		if (n.getFather().getDx() == n)
 			n.getFather().setDx(null);
 		if (n.getFather().getSx() == n)

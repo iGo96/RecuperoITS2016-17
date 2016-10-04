@@ -1,0 +1,22 @@
+package com.its.exceptions;
+
+import com.its.es2.Node;
+
+public class NodeAlreadyExistsException extends Exception {
+	
+	Node n;
+	
+	public NodeAlreadyExistsException(Node existingNode){ // generic 
+		super(); 
+		this.n = existingNode;
+	} 
+	
+	public NodeAlreadyExistsException(String message){ // accepts a messa
+		super(message);
+	}
+	
+	@override
+	public String getMessage(){
+		return super.getMessage() + n.getValue();
+	}
+}

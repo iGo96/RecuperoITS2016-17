@@ -1,0 +1,9 @@
+package com.its.exceptions;
+
+public class NodeDoesNotExistException extends Exception{
+	
+	public NodeAlreadyExistsException(){
+		
+	}
+	
+}

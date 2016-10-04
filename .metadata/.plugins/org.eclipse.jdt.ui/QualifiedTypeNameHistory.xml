@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.its.es2.Node"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="com.its.exceptions.NodeAlreadyExistsException"/>
+<fullyQualifiedTypeName name="com.its.exceptions.NodeDoesNotExistException"/>
+</qualifiedTypeNameHistroy>

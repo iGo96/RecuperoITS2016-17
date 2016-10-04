@@ -1,0 +1,12 @@
+package com.its.exceptions;
+
+public class NodeAlreadyExistsException extends Exception {
+	
+	public NodeAlreadyExistsException(){ // generic 
+		super(); 
+	} 
+	
+	public NodeAlreadyExistsException(String message){ // accepts a messa
+		super(message);
+	}
+}

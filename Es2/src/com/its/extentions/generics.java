@@ -1,0 +1,9 @@
+package com.its.extentions;
+
+public class generics {
+	
+//	public static isEmpty(this Node n){
+//		return (n == null);
+//	}
+	
+}
