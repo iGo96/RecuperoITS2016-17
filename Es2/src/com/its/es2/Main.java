@@ -2,6 +2,7 @@ package com.its.es2;
 
 import com.its.exceptions.NodeAlreadyExistsException;
 import com.its.exceptions.NodeDoesNotExistException;
+import com.its.constants.*;
 
 public class Main {
 
@@ -11,10 +12,9 @@ public class Main {
 		try{
 			t.insertLeft(root, 3);
 		} catch(NodeAlreadyExistsException e){
-//			System.out.println(e.getNode());
 			t.deleteNode(e.getNode());
 			try{
-				t.insertLeft(root, 3);
+				t.insertLeftAgain(root, 3);
 			} catch(NodeAlreadyExistsException e2){
 				System.out.println(e2.getNode());
 			}
@@ -24,10 +24,9 @@ public class Main {
 		try{
 			nx = t.insertRight(root, 3);
 		} catch(NodeAlreadyExistsException e){
-			//System.out.println(e.getNode());
 			t.deleteNode(e.getNode());
 			try{
-				t.insertLeft(root, 3);
+				t.insertRightAgain(root, 3);
 			} catch(NodeAlreadyExistsException e2){
 				System.out.println(e2.getNode());
 			}
@@ -36,14 +35,12 @@ public class Main {
 		try{
 			t.insertLeft(nx, 5);
 		} catch(NodeAlreadyExistsException e){
-			//System.out.println(e.getNode());
 			t.deleteNode(e.getNode());
 			try{
-				t.insertLeft(nx, 5);
+				t.insertLeftAgain(nx, 5);
 			} catch(NodeAlreadyExistsException e2){
 				System.out.println(e2.getNode());
 			}
-			
 		}
 		
 		Node n5;

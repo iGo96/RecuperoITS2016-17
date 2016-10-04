@@ -1,5 +1,6 @@
 package com.its.es2;
 
+import com.its.constants.constants;
 import com.its.exceptions.NodeAlreadyExistsException;
 import com.its.exceptions.NodeDoesNotExistException;
 
@@ -40,22 +41,44 @@ public class BT {
 		}
 	}
 	
-	public Node insertRight(Node node, int value) throws NodeAlreadyExistsException{
-		if (node.getDx() == null){
-			node.setDx(value);
-			return node;
+	public Node insertRight(Node n, int value) throws NodeAlreadyExistsException{
+		if (n.getDx() == null){
+			n.setDx(value);
+			return n;
 		}
 		else
-			throw new NodeAlreadyExistsException(node.getDx());
+			throw new NodeAlreadyExistsException(n.getDx());
 	}
 	
-	public Node insertLeft(Node node, int value) throws NodeAlreadyExistsException{
-		if (node.getSx() == null){
-			node.setSx(value);
-			return node;
+	public Node insertRightAgain(Node n, int value) throws NodeAlreadyExistsException{
+		for (int i = 0; i < constants.MAX_REINSERT_ATTEMPTS; i++){
+			if (n.getDx() == null){
+				n.setDx(value);
+				//System.out.println(i);
+				return n;
+			}
+		}
+		throw new NodeAlreadyExistsException(n.getDx());
+	}
+	
+	public Node insertLeft(Node n, int value) throws NodeAlreadyExistsException{
+		if (n.getSx() == null){
+			n.setSx(value);
+			return n;
 		}
 		else
-			throw new NodeAlreadyExistsException(node.getSx());
+			throw new NodeAlreadyExistsException(n.getSx());
+	}
+	
+	public Node insertLeftAgain(Node n, int value) throws NodeAlreadyExistsException{
+		for (int i = 0; i < constants.MAX_REINSERT_ATTEMPTS; i++){
+			if (n.getSx() == null){
+				n.setSx(value);
+				//System.out.println(i);
+				return n;
+			}
+		}
+		throw new NodeAlreadyExistsException(n.getSx());
 	}
 	
 	public void updateNode(Node n, int val){

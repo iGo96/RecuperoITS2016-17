@@ -1,0 +1,5 @@
+package com.its.constants;
+
+public class constants {
+	public final int MAX_REINSERT_ATTEMPTS = 50;
+}
