@@ -1,6 +1,7 @@
 package com.its.es2;
 
 import com.its.exceptions.NodeAlreadyExistsException;
+import com.its.exceptions.NodeDoesNotExistException;
 
 public class Main {
 
@@ -10,23 +11,32 @@ public class Main {
 		try{
 			t.insertLeft(root, 3);
 		} catch(NodeAlreadyExistsException e){
-			System.out.println(e.getMessage());
+			System.out.println(e.getNode());
 		}
 		
+		Node nx = new Node(5, t.getNode());
 		try{
-		Node nx = t.insertRight(root, 3);
-		} catch(Il nodo a destra è già occupato)
+			nx = t.insertRight(root, 3);
+		} catch(NodeAlreadyExistsException e){
+			System.out.println(e.getNode());
+		}
+		
 		try{
 			t.insertLeft(nx, 5);
 		} catch(NodeAlreadyExistsException e){
+			System.out.println(e.getNode());
+		}
+		
+		Node n5;
+		n5 = t.searchFirst(3);
+		try{
+			t.deleteNode(n5);
+		} catch (NodeDoesNotExistException e){
 			System.out.println(e.getMessage());
 		}
 		
-		Node n5 = t.searchFirst(5);
-		t.deleteNode(n5);
-		
 		t.updateNode(nx, 10);
 		Node n3  = t.searchFirst(3);
-		System.out.println("n3 != nx" + (n3 != nx));
+		System.out.println("Is n3 != nx? It seems it's " + (n3 != nx));
 	}
 }

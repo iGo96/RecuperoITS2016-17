@@ -16,7 +16,7 @@ public class Main {
 			try{
 				t.insertLeft(root, 3);
 			} catch(NodeAlreadyExistsException e2){
-				System.out.println(e2.getNode());
+				System.out.println(e2.getMessage());
 			}
 		}
 			
@@ -29,7 +29,7 @@ public class Main {
 			try{
 				t.insertLeft(root, 3);
 			} catch(NodeAlreadyExistsException e2){
-				System.out.println(e2.getNode());
+				System.out.println(e2.getMessage());
 			}
 		}
 		
@@ -38,10 +38,11 @@ public class Main {
 		} catch(NodeAlreadyExistsException e){
 			//System.out.println(e.getNode());
 			t.deleteNode(e.getNode());
+			
 			try{
 				t.insertLeft(nx, 5);
 			} catch(NodeAlreadyExistsException e2){
-				System.out.println(e2.getNode());
+				System.out.println(e2.getMessage());
 			}
 			
 		}
