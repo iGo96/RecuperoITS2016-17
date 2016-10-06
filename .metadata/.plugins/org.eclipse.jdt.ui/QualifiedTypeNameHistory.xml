@@ -2,7 +2,7 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="com.its.es2.Node"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
-<fullyQualifiedTypeName name="com.its.exceptions.NodeAlreadyExistsException"/>
 <fullyQualifiedTypeName name="com.its.exceptions.NodeDoesNotExistException"/>
 <fullyQualifiedTypeName name="com.its.constants.constants"/>
+<fullyQualifiedTypeName name="com.its.exceptions.NodeAlreadyExistsException"/>
 </qualifiedTypeNameHistroy>

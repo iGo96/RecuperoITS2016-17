@@ -50,14 +50,18 @@ public class BT {
 			throw new NodeAlreadyExistsException(n.getDx());
 	}
 	
-	public Node insertRightAgain(Node n, int value) throws NodeAlreadyExistsException{
-		for (int i = 0; i < constants.MAX_REINSERT_ATTEMPTS; i++){
+	public Node tryInsertRight(Node n, int value, int times) throws NodeAlreadyExistsException{
+		int i = 0;
+		do{
 			if (n.getDx() == null){
 				n.setDx(value);
-				//System.out.println(i);
 				return n;
 			}
-		}
+			else {
+				n.getFather().setDx(null);
+				i++;
+			}
+		} while((i < times));
 		throw new NodeAlreadyExistsException(n.getDx());
 	}
 	
@@ -70,14 +74,18 @@ public class BT {
 			throw new NodeAlreadyExistsException(n.getSx());
 	}
 	
-	public Node insertLeftAgain(Node n, int value) throws NodeAlreadyExistsException{
-		for (int i = 0; i < constants.MAX_REINSERT_ATTEMPTS; i++){
+	public Node tryInsertLeft(Node n, int value, int times) throws NodeAlreadyExistsException{
+		int i = 0;
+		do{
 			if (n.getSx() == null){
 				n.setSx(value);
-				//System.out.println(i);
 				return n;
 			}
-		}
+			else {
+				n.getFather().setSx(null);
+				i++;
+			}
+		} while((i < times));
 		throw new NodeAlreadyExistsException(n.getSx());
 	}
 	
